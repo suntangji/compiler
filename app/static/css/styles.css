@@ -1,0 +1,113 @@
+.nav_zindex{
+    z-index:9999;
+}
+#but_submit{
+    z-index:19999;
+}
+@media only screen and (max-width: 450px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:25% auto 0 auto;
+        width:80%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:500px  auto 0 auto;
+    }
+}
+@media only screen and (max-width: 376px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:25% auto 0 auto;
+        width:80%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:475px  auto 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        margin:7% auto 0 auto;
+        width:50%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:500px  auto 0 auto;
+    }
+    button {
+        margin: 0.5%;
+    }
+}
+@media only screen and (min-width: 451px)and (max-width: 767px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:15% auto 0 auto;
+        width:80%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:500px auto 0 auto;
+    }
+}
+@media only screen and (min-width: 768px)and (max-width: 1000px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:10% auto 0 auto;
+        width:80%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:500px auto 0 auto;
+    }
+}
+@media only screen and (min-width: 1001px)and (max-width: 1440px) {
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:10% auto 0 auto;
+        width:80%;
+        height:400px;
+
+    }
+    #but_submit {
+        text-align:center;
+        margin:500px auto 0 auto;
+    }
+}
