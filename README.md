@@ -6,21 +6,21 @@
 
 ### 功能
 #### 支持的语言
-- c
-- cpp
-- pyhton2
-- python3
+- C
+- Cpp
+- Pyhton2
+- Python3
 #### 即将支持的语言
-- go
-- java
-- php
-- swift
+- Go
+- Java
+- PHP
+- Swift
 #### 支持把代码保存到本地
 #### 支持输入输出
 ### 使用的技术和库
 
 #### 前端
-- Jquery
+- jQuery
 - Bootstrap
 - Ace.js
 
@@ -29,12 +29,12 @@
 - Flask
 
 #### 服务器
-- nginx
-- uwsgi
+- Nginx
+- uWSGI
 ### 使用方法
 #### 安装软件
-- python3
-- nginx
+- Python3
+- Nginx
 #### 下载源码
 ``` bash
 $ git clone git@github.com:suntangji/compiler.git
