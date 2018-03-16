@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, request, jsonify, json
-from compiler import *
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 import global_var
+from compiler import action
+import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you cannot guess this key'
-
 
 
 @app.route('/output/', methods=['POST'])
@@ -12,7 +12,7 @@ def get_data():
     data = request.get_json()
     code = data['data']
     if code:
-        output = action(code, language)
+        output = action(code, language, time.time())
         global_var.set_global("")
         return jsonify({'ok': output})
 
@@ -83,6 +83,7 @@ print("test")
     return render_template(
         'index.html', default_code=default_code, lang='python3')
 
+
 if __name__ == '__main__':
-    app.debug = False
+    app.debug = True
     app.run(host='0.0.0.0', port=5000)

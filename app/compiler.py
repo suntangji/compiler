@@ -1,16 +1,16 @@
-#!/usr/bin/python3
-#-*- coding:utf8 -*-
+# !/usr/bin/python3
+# -*- coding:utf8 -*-
 # author: suntangji 2018-01-19 14:54:49
 
 import os
-import time
 import subprocess
 import global_var
 
-t = str(int(time.time() * 1000))
+# t = str((time.time()) / random.randint(100, 1000))
+# t = time.time()
 
-def get_file_name(lang):
-    global t
+
+def get_file_name(lang, t):
     fpath = get_file_path()
     if lang == 'python2' or lang == 'python3':
         fname = os.path.join(fpath, '%s.py' % t)
@@ -53,14 +53,14 @@ def process_switch(file_name, lang):
     elif lang == 'c' or lang == 'cpp':
         cmd1 = "g++ {file} -o {file}.out".format(file=file_name)
         cmd2 = "%s.out" % file_name
-        cmd = cmd1 + "\n" + cmd2
+        cmd = cmd1 + "&&" + cmd2
     # obj = subprocess.getoutput(cmd)
-    proc = subprocess.Popen(cmd,shell = True,stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE)
+    proc = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     # proc.stdin.write(user_input.encode('utf-8'))
     user_input = global_var.get_global()
     userinput = user_input.encode('utf-8')
     proc.stdin.write(userinput)
-    out_value,err_value=proc.communicate()
+    out_value, err_value = proc.communicate()
     out = out_value.decode('utf-8')
     err = err_value.decode('utf-8')
     if err == '':
@@ -68,19 +68,20 @@ def process_switch(file_name, lang):
     else:
         return err
 
-    
-def remove_file(file_name,lang):
+
+def remove_file(file_name, lang):
     if lang == "python2" or lang == "python3":
         os.remove(file_name)
     elif lang == "c" or lang == "cpp":
         os.remove(file_name)
-        os.remove(file_name+".out")
+        if os.path.exists("file_name" + ".out"):
+            os.remove(file_name+".out")
     # shutil.rmtree(file_name)
 
 
-def action(code, lang):
-    file_name = get_file_name(lang)
+def action(code, lang, time):
+    file_name = get_file_name(lang, time)
     generate_file(code, lang, file_name)
     ret = process_switch(file_name, lang)
-    remove_file(file_name,lang)
+    remove_file(file_name, lang)
     return ret

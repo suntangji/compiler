@@ -41,7 +41,7 @@ $('#myButton').on('click', function () {
     // business logic...
     //$('#display').modal();
     setTimeout(function () { $btn.button('reset'); },1000);
-	setTimeout(function () { $('#display').modal("hide");},10000);
+	//setTimeout(function () { $('#display').modal("hide");},10000);
     //$btn.button('reset');
 });
 $('#myButton').click(function () {
