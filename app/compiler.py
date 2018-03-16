@@ -73,9 +73,10 @@ def remove_file(file_name, lang):
     if lang == "python2" or lang == "python3":
         os.remove(file_name)
     elif lang == "c" or lang == "cpp":
-        os.remove(file_name)
+        # file_name_excu = os.path.join(file_name,".out")
         if os.path.exists(file_name + ".out"):
-            os.remove(file_name+".out")
+            os.remove(file_name + ".out")
+        os.remove(file_name)
     # shutil.rmtree(file_name)
 
 
