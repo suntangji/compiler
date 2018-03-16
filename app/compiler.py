@@ -74,7 +74,7 @@ def remove_file(file_name, lang):
         os.remove(file_name)
     elif lang == "c" or lang == "cpp":
         os.remove(file_name)
-        if os.path.exists("file_name" + ".out"):
+        if os.path.exists(file_name + ".out"):
             os.remove(file_name+".out")
     # shutil.rmtree(file_name)
 
