@@ -47,17 +47,34 @@ def generate_file(code, lang, file_name):
 
 def process_switch(file_name, lang):
     if lang == 'python2':
-        cmd = "python2 %s" % file_name
+        # cmd = "python2 %s" % file_name
+        cmd = ['python2', file_name]
     elif lang == 'python3':
-        cmd = "python3 %s" % file_name
+        # cmd = "python3 %s" % file_name
+        cmd = ['python3', file_name]
     elif lang == 'c' or lang == 'cpp':
-        cmd1 = "g++ {file} -o {file}.out".format(file=file_name)
-        cmd2 = "%s.out" % file_name
-        cmd = cmd1 + "&&" + cmd2
+        # cmd1 = "g++ {file} -o {file}.out".format(file=file_name)
+        # cmd2 = "%s.out" % file_name
+        # cmd = cmd1 + "&&" + cmd2
+        cmd = ['g++', file_name, '-o', file_name + '.out']
+        # file_name + '.out'
+        proc = subprocess.Popen(cmd, shell=False, stderr=subprocess.PIPE)
+        err_out = proc.stderr.read()
+        # out_prem, err_prem = proc.communicate()
+        proc.stderr.close()
+        # proc.stdout.close()
+        err_out = err_out.decode('utf-8')
+        # print(err_out)
+        if err_out == '':
+            cmd = [file_name + '.out']
+            # print(cmd)
+        else:
+            return err_out
     # obj = subprocess.getoutput(cmd)
+    # print(cmd)
     proc = subprocess.Popen(
         cmd,
-        shell=True,
+        shell=False,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE)
@@ -71,6 +88,7 @@ def process_switch(file_name, lang):
         err = err_value.decode('utf-8')
     except subprocess.TimeoutExpired:
         err = 'timeout!'
+        proc.kill()
 
     if err == '':
         return out
