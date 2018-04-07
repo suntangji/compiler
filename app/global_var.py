@@ -3,7 +3,7 @@
 #author: suntangji 2018-01-29 17:06:53
 
 user_input = ""
-language = 'c'
+language = ''
 def get_global():
     global user_input
     return user_input

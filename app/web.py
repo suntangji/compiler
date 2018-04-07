@@ -37,7 +37,7 @@ def index():
 
 @app.route('/c/', methods=['GET'])
 def c():
-    global_var.set_global('c')
+    global_var.set_language('c')
     default_code = '''#include<stdio.h>
 int main(){
     printf("test\\n");
@@ -48,7 +48,7 @@ int main(){
 
 @app.route('/cpp/', methods=['GET'])
 def cpp():
-    global_var.set_global('cpp')
+    global_var.set_language('cpp')
     default_code = '''#include<iostream>
 using namespace std;
 int main(){
@@ -60,7 +60,7 @@ int main(){
 
 @app.route('/python2/', methods=['GET'])
 def python2():
-    global_var.set_global('python2')
+    global_var.set_language('python2')
     default_code = '''#!/usr/bin/python
 # -*- coding: utf-8 -*-
 print "test"
@@ -71,7 +71,7 @@ print "test"
 
 @app.route('/python3/', methods=['GET'])
 def python3():
-    global_var.set_global('python3')
+    global_var.set_language('python3')
     default_code = '''#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 print("test")
