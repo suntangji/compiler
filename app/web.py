@@ -12,7 +12,7 @@ def get_data():
     data = request.get_json()
     code = data['data']
     if code:
-        output = action(code, language, time.time())
+        output = action(code, global_var.get_language(), time.time())
         global_var.set_global("")
         return jsonify({'ok': output})
 
@@ -37,8 +37,7 @@ def index():
 
 @app.route('/c/', methods=['GET'])
 def c():
-    global language
-    language = 'c'
+    global_var.set_global('c')
     default_code = '''#include<stdio.h>
 int main(){
     printf("test\\n");
@@ -49,8 +48,7 @@ int main(){
 
 @app.route('/cpp/', methods=['GET'])
 def cpp():
-    global language
-    language = 'cpp'
+    global_var.set_global('cpp')
     default_code = '''#include<iostream>
 using namespace std;
 int main(){
@@ -62,8 +60,7 @@ int main(){
 
 @app.route('/python2/', methods=['GET'])
 def python2():
-    global language
-    language = "python2"
+    global_var.set_global('python2')
     default_code = '''#!/usr/bin/python
 # -*- coding: utf-8 -*-
 print "test"
@@ -74,8 +71,7 @@ print "test"
 
 @app.route('/python3/', methods=['GET'])
 def python3():
-    global language
-    language = "python3"
+    global_var.set_global('python3')
     default_code = '''#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 print("test")

@@ -10,3 +10,10 @@ def get_global():
 def set_global(var):
     global user_input
     user_input = var
+def get_language():
+    global language 
+    return language
+def set_language(lan):
+    global language 
+    language = lan;
+
