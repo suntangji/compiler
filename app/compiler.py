@@ -41,8 +41,8 @@ def generate_file(code, lang, file_name):
     with open(fpath, 'w', encoding='utf-8') as f:
         f.write(code)
     # with open(fpath, 'r', encoding='utf-8') as f:
-        # file = f.read()
-        # print(file)
+    # file = f.read()
+    # print(file)
 
 
 def process_switch(file_name, lang):
@@ -55,14 +55,23 @@ def process_switch(file_name, lang):
         cmd2 = "%s.out" % file_name
         cmd = cmd1 + "&&" + cmd2
     # obj = subprocess.getoutput(cmd)
-    proc = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    proc = subprocess.Popen(
+        cmd,
+        shell=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
     # proc.stdin.write(user_input.encode('utf-8'))
     user_input = global_var.get_global()
     userinput = user_input.encode('utf-8')
-    proc.stdin.write(userinput)
-    out_value, err_value = proc.communicate()
-    out = out_value.decode('utf-8')
-    err = err_value.decode('utf-8')
+    # proc.stdin.write(userinput)
+    try:
+        out_value, err_value = proc.communicate(userinput, 10)
+        out = out_value.decode('utf-8')
+        err = err_value.decode('utf-8')
+    except subprocess.TimeoutExpired:
+        err = 'timeout!'
+
     if err == '':
         return out
     else:
