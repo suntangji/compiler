@@ -33,7 +33,7 @@ editor.setTheme("ace/theme/monokai");
 var mode = "ace/mode/"+ace_lang;
 editor.getSession().setMode(mode);
 editor.resize();
-document.getElementById('editor').style.fontSize='14px';
+document.getElementById('editor').style.fontSize='16px';
 //alert(code);
 //});
 $('#myButton').on('click', function () {
@@ -45,9 +45,14 @@ $('#myButton').on('click', function () {
     //$btn.button('reset');
 });
 $('#myButton').click(function () {
+	var lang = $(".active").text();
+	if(lang == 'c++') {
+		lang = 'cpp';
+	}
 	var code = editor.getValue();
 	var data = {
-		"data":code
+		"data":code,
+		"lang":lang
 	};
 	$.ajax({
     url:'/output/',

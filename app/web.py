@@ -11,8 +11,9 @@ app.config['SECRET_KEY'] = 'you cannot guess this key'
 def get_data():
     data = request.get_json()
     code = data['data']
+    lang = data['lang']
     if code:
-        output = action(code, global_var.get_language(), time.time())
+        output = action(code, lang, time.time())
         global_var.set_global("")
         return jsonify({'ok': output})
 
@@ -82,4 +83,4 @@ print("test")
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8000)

@@ -1,19 +1,26 @@
-#!/usr/bin/python3
-#-*- coding:utf8 -*-
-#author: suntangji 2018-01-29 17:06:53
+# !/usr/bin/python3
+# -*- coding:utf8 -*-
+# author: suntangji 2018-01-29 17:06:53
 
 user_input = ""
 language = ''
+
+
 def get_global():
     global user_input
     return user_input
+
+
 def set_global(var):
     global user_input
     user_input = var
-def get_language():
-    global language 
-    return language
-def set_language(lan):
-    global language 
-    language = lan;
 
+
+def get_language():
+    global language
+    return language
+
+
+def set_language(lan):
+    global language
+    language = lan

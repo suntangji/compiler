@@ -13,7 +13,7 @@
         left: 0;
         margin:25% auto 0 auto;
         width:80%;
-        height:400px;
+        height:300px;
 
     }
     #but_submit {
@@ -30,7 +30,7 @@
         left: 0;
         margin:25% auto 0 auto;
         width:80%;
-        height:400px;
+        height:300px;
 
     }
     #but_submit {
@@ -48,13 +48,13 @@
         left: 0;
 
         margin:7% auto 0 auto;
-        width:50%;
-        height:400px;
+        width:75%;
+        height:500px;
 
     }
     #but_submit {
         text-align:center;
-        margin:500px  auto 0 auto;
+        margin:580px  auto 0 auto;
     }
     button {
         margin: 0.5%;
