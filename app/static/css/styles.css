@@ -11,14 +11,14 @@
         right: 0;
         bottom: 0;
         left: 0;
-        margin:25% auto 0 auto;
+        margin:20% auto 0 auto;
         width:80%;
-        height:300px;
+        height:400px;
 
     }
     #but_submit {
         text-align:center;
-        margin:500px  auto 0 auto;
+        margin:470px  auto 0 auto;
     }
 }
 @media only screen and (max-width: 376px) {
@@ -28,14 +28,14 @@
         right: 0;
         bottom: 0;
         left: 0;
-        margin:25% auto 0 auto;
+        margin:20% auto 0 auto;
         width:80%;
         height:300px;
 
     }
     #but_submit {
         text-align:center;
-        margin:475px  auto 0 auto;
+        margin:360px  auto 0 auto;
     }
 }
 
@@ -47,9 +47,9 @@
         bottom: 0;
         left: 0;
 
-        margin:7% auto 0 auto;
+        margin:4% auto 0 auto;
         width:100%;
-        height:500px;
+        height:550px;
 
     }
     #but_submit {
@@ -74,7 +74,7 @@
     }
     #but_submit {
         text-align:center;
-        margin:500px auto 0 auto;
+        margin:480px auto 0 auto;
     }
 }
 @media only screen and (min-width: 768px)and (max-width: 1000px) {
