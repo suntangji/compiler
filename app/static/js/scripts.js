@@ -33,9 +33,17 @@ editor.setTheme("ace/theme/monokai");
 var mode = "ace/mode/"+ace_lang;
 editor.getSession().setMode(mode);
 editor.resize();
-document.getElementById('editor').style.fontSize='16px';
+document.getElementById('editor').style.fontSize='20px';
 //alert(code);
 //});
+$("#btn_input").click(function () {
+    $('#myModal').modal();
+});
+var user_input = ""
+$('#btn_submit').click(function () {
+	user_input = $('#txt').val(); 
+	//alert(code);
+		});
 $('#myButton').on('click', function () {
     var $btn = $(this).button('loading');
     // business logic...
@@ -52,7 +60,8 @@ $('#myButton').click(function () {
 	var code = editor.getValue();
 	var data = {
 		"data":code,
-		"lang":lang
+		"lang":lang,
+		"input":user_input
 	};
 	$.ajax({
     url:'/output/',
@@ -74,29 +83,6 @@ $('#myButton').click(function () {
 $(function (){ 
 			$("#myButton").popover({trigger:'hover',placement:'bottom'});
 			});
-$("#btn_input").click(function () {
-    $('#myModal').modal();
-});
-$('#btn_submit').click(function () {
-	var code = $('#txt').val(); 
-	//alert(code);
-	var data = {
-		"data":code
-	};
-	$.ajax({
-    url:'/input/',
-    type: 'POST',
-    data: JSON.stringify(data),
-    contentType: 'application/json; charset=UTF-8',
-    dataType: 'json',  
-    success: function(msg){
-			//alert(msg.ok);
-            },
-	error: function (jqXHR, textStatus, errorThrown) {
-            /*错误信息处理*/
-        }
-	})
-		});
 $("#reset").click(function () {
 		//location.reload();
 		editor.setValue("");

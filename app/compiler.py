@@ -45,7 +45,7 @@ def generate_file(code, lang, file_name):
     # print(file)
 
 
-def process_switch(file_name, lang):
+def process_switch(file_name, lang, user_input):
     if lang == 'python2':
         # cmd = "python2 %s" % file_name
         cmd = ['python2', file_name]
@@ -79,7 +79,7 @@ def process_switch(file_name, lang):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE)
     # proc.stdin.write(user_input.encode('utf-8'))
-    user_input = global_var.get_global()
+    # user_input = global_var.get_global()
     userinput = user_input.encode('utf-8')
     # proc.stdin.write(userinput)
     try:
@@ -107,9 +107,9 @@ def remove_file(file_name, lang):
     # shutil.rmtree(file_name)
 
 
-def action(code, lang, time):
+def action(code, lang, user_input, time):
     file_name = get_file_name(lang, time)
     generate_file(code, lang, file_name)
-    ret = process_switch(file_name, lang)
+    ret = process_switch(file_name, lang, user_input)
     remove_file(file_name, lang)
     return ret
